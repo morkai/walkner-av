@@ -1,0 +1,30 @@
+<form class="historyFilter form">
+  <ul class="fields">
+    <li>
+      <label for="historyFilterProgram">Program:</label>
+      <select id="historyFilterProgram" name="program" class="short select" data-placeholder="Wybierz program...">
+        <option value="">Wszystkie programy
+        <% _.each(programs, function(program) { %>
+        <option value="<%- program._id %>" <%- program._id === filterData.program ? 'selected' : '' %>><%- program.name %>
+        <% }) %>
+      </select>
+    <li id="historyFilterState">
+      <label>Stan zakończenia:</label>
+      <input id="historyFilterFinishedState" class="checkbox" name="state[]" type="checkbox" value="success" <%- filterData.state.indexOf('success') === -1 ? '' : 'checked' %>>
+      <label for="historyFilterFinishedState">Ukończony</label>
+      <input id="historyFilterStoppedState" class="checkbox" name="state[]" type="checkbox" value="stop" <%- filterData.state.indexOf('stop') === -1 ? '' : 'checked' %>>
+      <label for="historyFilterStoppedState">Zatrzymany</label>
+      <input id="historyFilterErroredState" class="checkbox" name="state[]" type="checkbox" value="error" <%- filterData.state.indexOf('error') === -1 ? '' : 'checked' %>>
+      <label for="historyFilterErroredState">Błąd</label>
+    <li>
+      <label for="historyFilterFrom">Od:</label>
+      <input id="historyFilterFrom" class="textline" name="from" type="text" value="<%- filterData.from || '' %>" placeholder="YYYY-MM-DD HH:mm:ss">
+    <li>
+      <label for="historyFilterTo">Do:</label>
+      <input id="historyFilterTo" class="textline" name="to" type="text" value="<%- filterData.to || '' %>" placeholder="YYYY-MM-DD HH:mm:ss">
+    <li>
+      <label>Akcje:</label>
+      <input id="clearHistoryFilter" class="button" type="button" value="Usuń wszystkie filtry">
+  </ul>
+</form>
+<div class="historyEntriesContainer"></div>

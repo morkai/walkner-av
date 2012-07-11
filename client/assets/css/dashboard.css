@@ -1,0 +1,421 @@
+.stateContainer,
+.voltageContainer {
+  margin: 1em;
+  background: #F1F1F1;
+  background: -moz-linear-gradient(#FFF, #F1F1F1);
+  background: -webkit-linear-gradient(#FFF, #F1F1F1);
+  background: -o-linear-gradient(#FFF, #F1F1F1);
+  background: -ms-linear-gradient(#FFF, #F1F1F1);
+  background: linear-gradient(#FFF, #F1F1F1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#F1F1F1');
+  padding: .5em;
+  position: relative;
+  box-shadow: 0 1px 3px #666;
+  border: 1px solid #D4D4D4;
+}
+.stateContainer .stateIndicator {
+  background: #000;
+  width: 2em;
+  height: 2em;
+  font-size: 2em;
+  display: inline-block;
+  box-shadow: 0 1px 3px #666;
+  margin-right: .25em;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+.stateContainer .state.highlight {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.stateContainer h1 {
+  display: inline-block;
+  font-size: 3.5em;
+  text-transform: uppercase;
+  vertical-align: top;
+  text-shadow: 1px 1px 1px #FFF;
+  line-height: 1.15;
+}
+.stateContainer .action {
+  height: 2em;
+  width: 5em;
+  position: absolute;
+  top: .25em;
+  right: .25em;
+  font-size: 2em;
+  padding-top: .5em;
+  text-align: center;
+}
+.lightLevel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5em;
+  height: 5em;
+  font-size: 1em;
+  line-height: 4em;
+  text-align: center;
+  display: none;
+}
+.lightLevel.on {
+  display: inline-block;
+}
+.lightLevel .light {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5em;
+}
+.stateContainer .info {
+  margin-top: .5em;
+  padding-top: .5em;
+  border-top: 1px dotted #D4D4D4;
+}
+.stateContainer em {
+  font-weight: bold;
+  font-style: normal;
+}
+.disconnected > .stateIndicator {
+  background: #808080;
+  background: -moz-radial-gradient(center, ellipse cover, #FEFCEA 0%, #808080 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #FEFCEA 0%, #808080 100%);
+  background: -o-radial-gradient(center, ellipse cover, #FEFCEA 0%, #808080 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #FEFCEA 0%, #808080 100%);
+  background: radial-gradient(center, ellipse cover, #FEFCEA 0%, #808080 100%);
+}
+.connected > .stateIndicator {
+  background: #007FFF;
+  background: -moz-radial-gradient(center, ellipse cover, #FEFCEA 0%, #007FFF 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #FEFCEA 0%, #007FFF 100%);
+  background: -o-radial-gradient(center, ellipse cover, #FEFCEA 0%, #007FFF 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #FEFCEA 0%, #007FFF 100%);
+  background: radial-gradient(center, ellipse cover, #FEFCEA 0%, #007FFF 100%);
+}
+.programRunning > .stateIndicator {
+  background: #FFFF00;
+  background: -moz-radial-gradient(center, ellipse cover, #FEFCEA 0%, #FFFF00 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #FEFCEA 0%, #FFFF00 100%);
+  background: -o-radial-gradient(center, ellipse cover, #FEFCEA 0%, #FFFF00 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #FEFCEA 0%, #FFFF00 100%);
+  background: radial-gradient(center, ellipse cover, #FEFCEA 0%, #FFFF00 100%);
+}
+.programFinished > .stateIndicator {
+  background: #5AAB25;
+  background: -moz-radial-gradient(center, ellipse cover, #FEFCEA 0%, #5AAB25 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #FEFCEA 0%, #5AAB25 100%);
+  background: -o-radial-gradient(center, ellipse cover, #FEFCEA 0%, #5AAB25 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #FEFCEA 0%, #5AAB25 100%);
+  background: radial-gradient(center, ellipse cover, #FEFCEA 0%, #5AAB25 100%);
+}
+.programFinished .finalState {
+  color: #5AAB25;
+}
+.programStopped > .stateIndicator {
+  background: #F0A000;
+  background: -moz-radial-gradient(center, ellipse cover, #FEFCEA 0%, #F0A000 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #FEFCEA 0%, #F0A000 100%);
+  background: -o-radial-gradient(center, ellipse cover, #FEFCEA 0%, #F0A000 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #FEFCEA 0%, #F0A000 100%);
+  background: radial-gradient(center, ellipse cover, #FEFCEA 0%, #F0A000 100%);
+}
+.programStopped .finalState {
+  color: #F0A000;
+}
+.programErrored > .stateIndicator {
+  background: #FF3A3A;
+  background: -moz-radial-gradient(center, ellipse cover, #FEFCEA 0%, #FF3A3A 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #FEFCEA 0%, #FF3A3A 100%);
+  background: -o-radial-gradient(center, ellipse cover, #FEFCEA 0%, #FF3A3A 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #FEFCEA 0%, #FF3A3A 100%);
+  background: radial-gradient(center, ellipse cover, #FEFCEA 0%, #FF3A3A 100%);
+}
+.programErrored .finalState {
+  color: #FF3A3A;
+}
+.progressBar {
+  background: #AAA;
+  border-top: 1px solid #989898;
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-top: .5em;
+  padding: .25em;
+  position: relative;
+  text-align: center;
+}
+.progressValue {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: .25em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #5AAB25;
+  background-image: linear-gradient(top, #7EC44F, #5AAB25);
+  background-image: -ms-linear-gradient(top, #7EC44F, #5AAB25);
+  background-image: -moz-linear-gradient(top, #7EC44F, #5AAB25);
+  background-image: -webkit-linear-gradient(top, #7EC44F, #5AAB25);
+  background-image: -o-linear-gradient(top, #7EC44F, #5AAB25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7EC44F', endColorstr='#5AAB25');
+}
+.timeToEnd {
+  color: #FFF;
+  position: relative;
+  z-index: 1;
+}
+.stateContainer dl {
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+.stateContainer dt {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 2.5em;
+  margin-left: .5em;
+}
+.stateContainer dd {
+  display: inline-block;
+  padding-right: .5em;
+  font-size: 2.5em;
+  border-right: 1px dotted #D4D4D4;
+}
+.stateContainer dd:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+.stateContainers > h2 {
+  margin: .75em .5em 0 .5em;
+  font-size: 2em;
+}
+.currentEntry .info {
+  margin-top: 0;
+  border-top: none;
+  font-size: .8em;
+}
+
+.voltageContainer {
+  margin: 1em;
+  box-shadow: 0 1px 3px #666;
+  font-size: 1.25em;
+}
+.decreaseVoltageButton {
+  font-size: 6em;
+  padding: 0;
+  float: left;
+}
+.increaseVoltageButton {
+  font-size: 6em;
+  padding: 0;
+  float: right;
+}
+.voltageText {
+  font-size: 6.1em;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.voltageText em {
+  font-style: normal;
+  color: #666;
+}
+
+.stepperContainer {
+  margin: 1em;
+  text-align: center;
+}
+.stepperContainer .action {
+  font-size: 3em;
+  width: 33%;
+}
+
+.diagView h2 {
+  font-size: 1.5em;
+  margin: 0 .75em;
+  padding-top: .75em;
+  padding-bottom: .25em;
+  border-top: 1px dotted #666;
+}
+.diagView h2:first-child {
+  border-top: none;
+}
+.transaction {
+  padding-bottom: 0;
+}
+.transaction .tag {
+  background: #F1F1F1;
+  background: -moz-linear-gradient(#FFF, #F1F1F1);
+  background: -webkit-linear-gradient(#FFF, #F1F1F1);
+  background: -o-linear-gradient(#FFF, #F1F1F1);
+  background: -ms-linear-gradient(#FFF, #F1F1F1);
+  background: linear-gradient(#FFF, #F1F1F1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#F1F1F1');
+  display: inline-block;
+  padding: .5em .5em;
+  margin: 0 0 1em 1em;
+  box-shadow: 0 1px 3px #666;
+  border-radius: 2px;
+  font-family: monospace;
+  font-size: 1.3em;
+  text-shadow: 1px 1px 1px #EEE;
+}
+.transaction .output {
+  cursor: pointer;
+}
+.transaction .tag:hover {
+  box-shadow: 0 1px 6px #666;
+}
+.transaction .digital {
+  background: #FF3A3A;
+  background: -moz-linear-gradient(#FFF, #FF3A3A);
+  background: -webkit-linear-gradient(#FFF, #FF3A3A);
+  background: -o-linear-gradient(#FFF, #FF3A3A);
+  background: -ms-linear-gradient(#FFF, #FF3A3A);
+  background: linear-gradient(#FFF, #FF3A3A);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#FF3A3A');
+}
+.transaction .digital.on {
+  background: #5AAB25;
+  background: -moz-linear-gradient(#FFF, #FF3A3A);
+  background: -webkit-linear-gradient(#FFF, #5AAB25);
+  background: -o-linear-gradient(#FFF, #FF3A3A);
+  background: -ms-linear-gradient(#FFF, #FF3A3A);
+  background: linear-gradient(#FFF, #FF3A3A);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#FF3A3A');
+}
+.tagContents {
+  white-space: nowrap;
+  text-align: center;
+}
+.analogSlider {
+  display: block;
+}
+
+.programPicker {
+  width: 100%;
+}
+.programPicker h3,
+.programPicker h4 {
+  padding: .5em;
+  margin: 0;
+}
+.programPicker h3 {
+  font-size: 1.7em;
+  background-color: #FFF;
+}
+.programPicker h4 {
+  font-size: 1.5em;
+  background: #F1F1F1;
+  background: -moz-linear-gradient(#FFF, #F1F1F1);
+  background: -webkit-linear-gradient(#FFF, #F1F1F1);
+  background: -o-linear-gradient(#FFF, #F1F1F1);
+  background: -ms-linear-gradient(#FFF, #F1F1F1);
+  background: linear-gradient(#FFF, #F1F1F1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#F1F1F1');
+}
+.programPicker .list,
+.programPicker .properties {
+  margin: 0;
+  overflow-y: auto;
+  background: #FFF;
+}
+.programPicker .box {
+  vertical-align: top;
+  display: inline-block;
+  box-shadow: 0 1px 3px #333;
+}
+.programPicker .allProgramsContainer {
+  padding: 1em;
+}
+.programPicker .allProgramsContainer .content {
+  max-width: none;
+  margin-top: 0;
+  margin-bottom: 1em;
+  box-shadow: 0 1px 3px #333;
+}
+.programPicker .allProgramsContainer .allPrograms {
+  width: 30%;
+  float: left;
+}
+.programPicker .allProgramsContainer .pickedProgram {
+  width: 69%;
+  float: right;
+}
+.programPicker .properties {
+  margin: 0;
+}
+.programPicker .pickedProgram {
+  position: relative;
+}
+.programPicker .pickedProgram .action {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  font-size: 28px;
+  height: 84px;
+}
+.programPicker .cancel {
+  left: 0;
+}
+.programPicker .startProgram {
+  left: 50%;
+}
+.programPicker .box:first-child {
+  margin-left: 0;
+}
+.programPicker .content {
+  max-width: 420px;
+  margin: 1em auto 0 auto;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  line-height: 1.4;
+}
+@media all and (max-width: 1280px) {
+  .programPicker .box
+  {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.restrikeIndicators {
+  float: right;
+}
+.restrikeIndicators .stateIndicator {
+  width: 2.6em;
+  height: 2.5em;
+  line-height: 2.5;
+  font-size: .8em;
+  font-weight: normal;
+  margin-right: 0;
+  margin-left: .25em;
+  vertical-align: top;
+  text-align: center;
+}
+.restrikeIndicator {
+  display: inline-block;
+}
+.progressBar[data-restrikeCount="1"] {
+  margin-right: 1.8em;
+}
+.progressBar[data-restrikeCount="2"] {
+  margin-right: 3.5em;
+}
+.progressBar[data-restrikeCount="3"] {
+  margin-right: 5.3em;
+}
+.progressBar[data-restrikeCount="4"] {
+  margin-right: 7.1em;
+}
+.progressBar[data-restrikeCount="5"] {
+  margin-right: 8.9em;
+}
+.secondaryActions {
+  margin-top: .25em;
+}

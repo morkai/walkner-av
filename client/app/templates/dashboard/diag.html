@@ -1,0 +1,15 @@
+<% transactions.forEach(function(transaction) { %>
+<h2><%- transaction.id %></h2>
+<div class="transaction">
+  <% transaction.tags.forEach(function(tag) { %>
+  <% if (tag === '_') return %>
+  <div class="tag <%- transaction.className %>" data-tag="<%- tag %>">
+    <p class="tagContents"><%- tag %>
+    <% if (!transaction.digital) { %>
+    = <span class="value">...</span>
+    <% } %>
+    </p>
+  </div>
+  <% }) %>
+</div>
+<% }) %>

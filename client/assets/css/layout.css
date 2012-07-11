@@ -1,0 +1,227 @@
+.layout {
+  margin-bottom: 1em;
+}
+a {
+  color: #06C;
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  color: #F50;
+}
+em {
+  font-style: oblique;
+}
+strong {
+  font-weight: bold;
+}
+.menu {
+  display: block;
+  background: #FFF;
+  background: -moz-linear-gradient(#FFF, #F1F1F1);
+  background: -webkit-linear-gradient(#FFF, #F1F1F1);
+  background: -o-linear-gradient(#FFF, #F1F1F1);
+  background: -ms-linear-gradient(#FFF, #F1F1F1);
+  background: linear-gradient(#FFF, #F1F1F1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#FFFFFF', endColorstr = '#F1F1F1');
+  text-align: center;
+  border-bottom: 1px solid #D4D4D4;
+  overflow-x: auto;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px #666;
+}
+.menu li {
+  margin: 0 auto 0 -1px;
+  display: inline-block;
+  border-left: 1px solid #D4D4D4;
+  border-right: 1px solid #D4D4D4;
+}
+.menu .active {
+  background: #F1F1F1;
+  background: -moz-linear-gradient(#F1F1F1, #FFF);
+  background: -webkit-linear-gradient(#F1F1F1, #FFF);
+  background: -o-linear-gradient(#F1F1F1, #FFF);
+  background: -ms-linear-gradient(#F1F1F1, #FFF);
+  background: linear-gradient(#F1F1F1, #FFF);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#F1F1F1', endColorstr = '#FFFFFF');
+}
+.menu a {
+  display: block;
+  text-decoration: none;
+  font-size: 1.5em;
+  padding: .5em .5em .5em .5em;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #FFF;
+}
+.menu .refresh-link,
+.menu .help-link {
+  float: right;
+  width: 4em;
+}
+.menu .back-link {
+  float: left;
+  width: 4em;
+}
+.menu .refresh-link a {
+  cursor: pointer;
+}
+.list {
+  background: #FFF;
+  box-shadow: 0 1px 3px #666;
+  margin: 1em;
+}
+.list li {
+  margin: 0;
+  padding: 0;
+}
+.list a {
+  border-bottom: 1px solid #D4D4D4;
+  display: block;
+  font-size: 1.5em;
+  margin: 0;
+  padding: .5em;
+  text-decoration: none;
+}
+.list > :last-child a {
+  border-bottom: 0;
+}
+.list a:hover,
+.list a:active,
+.list a.active {
+  background: #39F;
+  color: #FFF;
+  outline: 0;
+}
+.breadcrumbs {
+  margin: .5em .5em 0 .5em;
+  display: inline-block;
+  font-size: 2em;
+}
+.breadcrumbs + .bd {
+  clear: both;
+}
+.breadcrumbs li {
+  display: inline;
+}
+.breadcrumbs li:after {
+  content: " > ";
+}
+.breadcrumbs li:last-child:after {
+  content: "";
+}
+.page-actions {
+  margin-top: .85em;
+  display: block;
+  float: right;
+}
+.page-actions li {
+  display: inline-block;
+  margin-right: 1em;
+}
+.page-actions a,
+.page-actions input {
+  font-size: 1.5em;
+}
+.details h1 {
+  font-size: 2em;
+}
+.properties {
+  margin: 1em;
+  background: #FFF;
+  box-shadow: 0 1px 3px #666;
+  padding: 1em;
+}
+.property {
+  margin-top: 1em;
+}
+.property:first-child {
+  margin-top: 0;
+}
+.property-name {
+  margin-bottom: .25em;
+  font-weight: bold;
+  display: block;
+}
+.property-value em {
+  font-style: oblique;
+}
+.property-value code {
+  font-family: monospace;
+}
+.delete-confirm {
+  margin: 1em;
+  background: #FFF;
+  box-shadow: 0 1px 3px #666;
+  padding: 1em;
+}
+.delete-confirm p {
+  margin-bottom: 1em;
+}
+.content {
+  margin: 1em;
+  background: #FFF;
+  box-shadow: 0 1px 3px #666;
+  padding: 1em;
+}
+.content p {
+  margin-bottom: 1em;
+}
+.content p:last-child {
+  margin-bottom: 0;
+}
+@media all and (max-width: 700px) {
+  .breadcrumbs li
+  {
+    display: block;
+  }
+}
+.kb {
+  margin-bottom: 385px;
+}
+#kbContainer {
+  z-index: 300;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+#kbHolder {
+  margin: 0 auto;
+  background: #FFF;
+  border-top: 1px solid #AAA;
+}
+#toggleKb {
+  font-size: 1.5em;
+  margin: 0 auto -1px 0;
+}
+#virtualKeyboard {
+  margin: 0 auto!important;
+  height: 255px!important;
+  border: 0!important;
+}
+#kb_mappingselector,
+#kb_langselector,
+#copyrights {
+  display: none;
+}
+.pages {
+  display: block;
+  text-align: center;
+}
+.pages li {
+  display: inline-block;
+  margin: 1em .25em 0 .25em;
+}
+.pages .page a {
+  display: inline-block;
+  padding: .5em 0;
+  width: 2.5em;
+  background-color: #FFF;
+  box-shadow: 0 1px 3px #666;
+  border-radius: .25em;
+}
+.pages .currentPage {
+  width: 2.5em;
+}

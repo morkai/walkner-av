@@ -1,0 +1,50 @@
+table.program-steps {
+  width: 100%;
+}
+.program-steps tr {
+  border-top: 1px dotted rgba(130, 130, 130, .3);
+}
+.program-steps th {
+  font-weight: bold;
+  padding: .5em .25em;
+}
+.program-steps.mutable th {
+  cursor: pointer;
+}
+.program-steps th:first-child,
+.program-steps.mutable th:last-child {
+  width: 1%;
+}
+.program-steps td {
+  padding: .5em .25em;
+  vertical-align: middle;
+}
+.program-steps tfoot {
+  text-align: right;
+}
+.program-steps tfoot td {
+  padding-bottom: 0;
+}
+.program-steps .button {
+  width: 6em;
+}
+.program-step-template {
+  display: none;
+}
+.program-steps tr:last-child td {
+  padding-bottom: 0;
+}
+.program-steps.mutable tr:last-child td {
+  padding-bottom: .5em;
+}
+.programDetailsPage .history {
+  padding: 0 1em 1em 1em;
+}
+.programDetailsPage .history h3 {
+  font-size: 1.2em;
+  margin-bottom: .8em;
+}
+.programDetailsPage .note {
+  margin-top: 1em;
+  font-style: oblique;
+}

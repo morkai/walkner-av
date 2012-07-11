@@ -1,0 +1,11 @@
+<div class="previousEntry stateContainer <%- stateClassName %>">
+  <div class="stateIndicator"></div>
+  <h1><%- programName %></h1>
+  <p class="info">
+    Program <em><%- programName %></em> uruchomiony o
+    <em><%- moment(startedAt).format('HH:mm:ss') %></em>
+    został <span class="finalState"><%- finishState === 'stop' ? 'zatrzymany' : 'ukończony pomyślnie' %></span>
+    po <em><%- durationText %></em>
+    o <em><%- moment(finishedAt).format('HH:mm:ss') %></em>.
+  </p>
+</div>

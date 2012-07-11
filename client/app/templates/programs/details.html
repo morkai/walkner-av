@@ -1,0 +1,28 @@
+<div class="properties">
+  <div class="property">
+    <span class="property-name">Nazwa:</span>
+    <span class="property-value"><%- program.name %></span>
+  </div>
+  <div class="property">
+    <span class="property-name">Czas trwania:</span>
+    <span class="property-value"><%- program.time %></span>
+  </div>
+  <div class="property">
+    <span class="property-name">Czas odstępu HRS:</span>
+    <span class="property-value"><%- program.restrikeInterval %></span>
+  </div>
+  <div class="property">
+    <span class="property-name">Czas świecenia HRS:</span>
+    <span class="property-value"><%- program.restrikeTime %></span>
+  </div>
+  <div class="property">
+    <span class="property-name">Ilość cykli HRS:</span>
+    <span class="property-value"><%- program.restrikeCount %></span>
+  </div>
+  <% if (program.predefined !== 0) { %>
+  <p class="note">
+    Ten program przyspisany jest do kontrolki ręcznego wyboru programu
+    na pozycji <strong><%- program.predefined %></strong>!
+  </p>
+  <% } %>
+</div>

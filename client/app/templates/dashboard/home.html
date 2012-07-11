@@ -1,0 +1,44 @@
+<div class="stateContainers">
+  <div class="currentEntry stateContainer connected">
+    <div class="stateIndicator"></div>
+    <div class="lightLevel">
+      <img src="/assets/img/glowing_light_bulb.png" height=80 alt="">
+      <span class="light">0%</span>
+    </div>
+    <h1><span class="programName"><%- program.name %></span></h1>
+    <div class="progress">
+      <div class="restrikeIndicators">
+        <% for (var i = 0; i < program.restrikeCount; ++i) { %>
+        <div class="restrikeIndicator disconnected" data-index="<%- i %>">
+          <span class="stateIndicator"><%- program.restrikeInterval %></span>
+        </div>
+        <% } %>
+      </div>
+      <div class="progressBar" data-restrikeCount="<%- program.restrikeCount %>">
+        <p class="timeToEnd">
+          &nbsp;<span class="elapsedTime"><%- program.elapsedTime || 0 %></span>&nbsp;
+        </p>
+        <div class="progressValue">&nbsp;</div>
+      </div>
+    </div>
+    <dl class="info">
+      <dt>t=
+      <dd><span class="programTime"><%- program.time %></span>
+      <dt>T=
+      <dd><span class="temperature"><%- temperature %></span>&#176;C
+      <dt>U=
+      <dd><span class="voltage"><%- voltage %></span>V
+      <dt>I=
+      <dd><span class="current"><%- current %></span>A
+    </dl>
+  </div>
+  <ul class="page-actions secondaryActions">
+    <li><a class="blue action" href="#history;stats">Statystyki</a>
+  </ul>
+  <h2>Ostatni test</h2>
+  <div class="previousEntry stateContainer">
+    <p>
+      Od uruchomienia systemu nie przeprowadzono jeszcze żadnego testu.
+    </p>
+  </div>
+</div>

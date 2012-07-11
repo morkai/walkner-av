@@ -1,0 +1,37 @@
+<form class="program form" method="post" action="<%- action %>">
+  <input type="submit">
+  <ul class="fields">
+    <li>
+      <label for="program-name">Nazwa<span class="required" title="Wymagane">*</span></label>
+      <input id="program-name" name="program.name" class="full textline" type="text" autofocus value="<%= program.name %>" maxlength="50">
+    <li>
+      <label for="program-time">Czas trwania<span class="required" title="Wymagane">*</span></label>
+      <input id="program-time" name="program.time" class="short textline" type="text" value="<%= program.time %>">
+    <% if (showPredefFields) { %>
+    <li>
+      <fieldset>
+        <legend>Kontrolka ręcznego wyboru programu</legend>
+        <ul class="fields">
+          <li>
+            <input id="program-predefined0" name="program.predefined" class="radio" type="radio" value="0" checked>
+            <label for="program-predefined0">Nieprzypisany</label>
+          <li>
+            <input id="program-predefined1" name="program.predefined" class="radio" type="radio" value="1">
+            <label for="program-predefined1">Przypisany na pozycji 1</label>
+          <li>
+            <input id="program-predefined2" name="program.predefined" class="radio" type="radio" value="2">
+            <label for="program-predefined2">Przypisany na pozycji 2</label>
+        </ul>
+      </fieldset>
+    <% } %>
+    <li>
+      <label for="program-restrikeTime">Czas odstępu HRS</span></label>
+      <input id="program-restrikeInterval" name="program.restrikeInterval" class="hrsField short textline" type="text" value="<%= program.restrikeInterval %>">
+    <li>
+      <label for="program-restrikeTime">Czas świecenia HRS</span></label>
+      <input id="program-restrikeTime" name="program.restrikeTime" class="hrsField short textline" type="text" value="<%= program.restrikeTime %>">
+    <li>
+      <label for="program-restrikeCount">Ilość cykli HRS</label>
+      <input id="program-restrikeCount" name="program.restrikeCount" class="hrsField short textline" type="text" value="<%= program.restrikeCount %>">
+  </ul>
+</form>

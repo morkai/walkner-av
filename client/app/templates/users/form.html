@@ -1,0 +1,61 @@
+<form class="user form" method="post" action="<%- action %>">
+  <input type="submit">
+  <ul class="fields">
+    <li>
+      <label for="user-name">Imię i nazwisko<span class="required" title="Wymagane">*</span></label>
+      <input id="user-name" name="user.name" class="medium textline" type="text" autofocus value="<%= user.name %>">
+    <li>
+      <label for="user-email">Adres e-mail<span class="required" title="Wymagane">*</span></label>
+      <input id="user-email" name="user.email" class="medium textline" type="text" value="<%= user.email %>">
+    <li>
+      <label for="user-login">Login<span class="required" title="Wymagane">*</span></label>
+      <input id="user-login" name="user.login" class="medium textline" type="text" value="<%= user.login %>">
+    <li>
+      <label for="user-password">Hasło<span class="required" title="Wymagane">*</span></label>
+      <input id="user-password" name="user.password" class="short textline" type="password" value="">
+    <li>
+      <label for="user-password2">Powtórz hasło<span class="required" title="Wymagane">*</span></label>
+      <input id="user-password2" name="user.password2" class="short textline" type="password" value="">
+    <li>
+      <fieldset>
+        <legend>Uprawnienia</legend>
+        <ul class="fields">
+          <!--
+          <li>
+            <input id="user-privileges-params" name="user.privileges.params" class="checkbox" type="checkbox" value="1">
+            <label for="user-privileges-params">Regulacja parametrów</label>
+          //-->
+          <li>
+            <input id="user-privileges-viewHistory" name="user.privileges.viewHistory" class="checkbox" type="checkbox" value="1">
+            <label for="user-privileges-viewHistory">Przeglądanie historii</label>
+          <li>
+            <input id="user-privileges-purgeHistory" name="user.privileges.purgeHistory" class="checkbox" type="checkbox" value="1">
+            <label for="user-privileges-purgeHistory">Czyszczenie historii</label>
+          <li>
+            <input id="user-privileges-viewPrograms" name="user.privileges.viewPrograms" class="checkbox" type="checkbox" value="1">
+            <label for="user-privileges-viewPrograms">Przeglądanie programów</label>
+          <li>
+            <input id="user-privileges-managePrograms" name="user.privileges.managePrograms" class="checkbox" type="checkbox" value="1">
+            <label for="user-privileges-managePrograms">Zarządzanie programami</label>
+          <li>
+            <input id="user-privileges-predefinePrograms" name="user.privileges.predefinePrograms" class="checkbox" type="checkbox" value="1">
+            <label for="user-privileges-predefinePrograms">Przypisywanie programu na pozycje 1 i 2</label>
+          <li>
+            <input id="user-privileges-assignDefaultProgram" name="user.privileges.assignDefaultProgram" class="checkbox" type="checkbox" value="1">
+            <label for="user-privileges-assignDefaultProgram">Przypisywanie programu na pozycję 3</label>
+          <li>
+            <input id="user-privileges-viewUsers" name="user.privileges.viewUsers" class="checkbox" type="checkbox" value="1">
+            <label for="user-privileges-viewUsers">Przeglądanie użytkowników</label>
+          <li>
+            <input id="user-privileges-manageUsers" name="user.privileges.manageUsers" class="checkbox" type="checkbox" value="1">
+            <label for="user-privileges-manageUsers">Zarządzanie użytkownikami</label>
+          <li>
+            <input id="user-privileges-statsCorrection" name="user.privileges.statsCorrection" class="checkbox" type="checkbox" value="1">
+            <label for="user-privileges-statsCorrection">Korekta statystyk</label>
+          <li>
+            <input id="user-privileges-statsNewShift" name="user.privileges.statsNewShift" class="checkbox" type="checkbox" value="1">
+            <label for="user-privileges-statsNewShift">Tworzenie nowej zmiany (statystyki)</label>
+        </ul>
+      </fieldset>
+  </ul>
+</form>

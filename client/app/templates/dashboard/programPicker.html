@@ -1,0 +1,22 @@
+<div class="allProgramsContainer">
+  <p class="content">
+    Wybierz z listy program, który chcesz przypisać do sterownika
+    i wciśnij przycisk <em>Przypisz</em>.
+  </p>
+  <div class="allPrograms box">
+    <h4>Programy</h4>
+    <ol class="list">
+      <% _.each(allPrograms, function(program) { %>
+      <li>
+        <a class="program" href="#programs/<%- program._id %>" data-id="<%- program._id %>"><%- program.name %></a>
+      </li>
+      <% }) %>
+    </ol>
+  </div>
+  <div class="pickedProgram box">
+    <h4>Wybrany program</h4>
+    <div class="programDetails"></div>
+    <input class="cancel action red" type="button" value="Anuluj">
+    <input class="startProgram action green" type="button" value="Przypisz">
+  </div>
+</div>

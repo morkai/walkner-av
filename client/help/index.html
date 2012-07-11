@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>ArenaVision Tester - Dokumentacja</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body class="help">
+    <ul id="toolbar" class="menu">
+      <li><a href="#toc" title="Pokaż spis treści">Spis treści</a>
+      <li><a id="back" title="Do tyłu">&#8678;</a>
+      <li><a id="forward" title="Do przodu">&#8680;</a>
+      <li><a id="up" title="Przewiń do góry">&#8679;</a>
+      <li><a id="down" title="Przewiń do dołu">&#8681;</a>
+      <li id="showApp"><a title="Wróć do aplikacji" href="/">Aplikacja</a>
+    </ul>
+    <div id="helpContainer">
+      <div id="toc">
+        <h1>ArenaVision Tester</h1>
+        <ol></ol>
+      </div>
+      <section id="intro" class="pbb">
+        <h1>Wstęp</h1>
+        <p>Niniejszy dokument stanowi dokumentację użytkownika dla aplikacji <em>ArenaVision Tester</em>.</p>
+        <p>
+          Uruchomienie aplikacji odbywa się poprzez wpisanie przez użytkownika adresu IP i portu
+          serwera w przeglądarce internetowej. Dane te różnią się w zależności od tego, w jakiej
+          sieci znajduje się użytkownik. Dla sieci bezprzewodowej <em>ML_WLAN</em>, adres to
+          <a href="http://192.168.21.59/">http://192.168.21.59/</a>,
+          natomiast dla sieci przewodowej -
+          <a href="http://192.168.64.20:8082/">http://161.87.64.20:8082/</a>.
+        </p>
+      </section>
+      <section id="requirements">
+        <h1>Wymagania</h1>
+        <p>
+          Do poprawnego korzystania z aplikacji,
+          użytkownik musi mieć zainstalowaną jedną z popularnych, aktualnych
+          przeglądarek internetowych.
+        </p>
+        <p id=browsers>
+          <a href="http://google.com/chrome"><img src="images/128-chrome.png" alt="Google Chrome" title="Pobierz Google Chrome"></a>
+          <a href="http://getfirefox.com/"><img src="images/128-firefox.png" alt="Firefox" title="Pobierz Firefoxa"></a>
+          <a href="http://www.opera.com/download/"><img src="images/128-opera.png" alt="Opera" title="Pobierz Operę"></a>
+          <a href="http://apple.com/pl/safari/download/"><img src="images/128-safari.png" alt="Safari" title="Pobierz Safari"></a>
+          <a href="http://windows.microsoft.com/pl-PL/internet-explorer/products/ie/home"><img src="images/128-ie.png" alt="Internet Explorer" title="Pobierz Internet Explorer"></a>
+        </p>
+      </section>
+      <section id="interface">
+        <h1>Interfejs</h1>
+        <div class="pageLayout">
+          <ul class="menu" data-tooltip="left, right" title="Główne menu">
+            <li class="help-link"><a data-tooltip="top" title="Pomoc">?</a>
+            <li class="active"><a data-tooltip="top" title="Aktualny moduł">Dashboard</a>
+            <li><a>Historia</a>
+            <li><a>Programy</a>
+            <li><a>Zaloguj się</a>
+          </ul>
+          <ul class="page-actions" data-tooltip="top" title="Przyciski akcji">
+            <li><a class="blue action">Edytuj</a>
+            <li><a class="red action">Usuń</a>
+          </ul>
+          <ul class="breadcrumbs" data-tooltip="left, right" title="Aktualna lokalizacja">
+            <li><a>Programy</a>
+            <li><span>Program 1</span>
+          </ul>
+          <div class="bd" data-tooltip="" title="Zawartość strony">
+            <div class="properties">
+              <div class="property"><span class="property-name">Nazwa:</span> <span class="property-value">Program 1</span></div>
+              <div class="property"><span class="property-name">Czas trwania:</span> <span class="property-value">30s</span></div>
+            </div>
+          </div>
+        </div>
+        <section id="interface-navigation">
+          <h1>Nawigacja</h1>
+          <p>
+            Po aplikacji można poruszać się klikając na odnośniki i przyciski wyświetlane na ekranie.
+          </p>
+          <p>
+            Odnośniki mają następującą postać: <a class="link">przykładowy odnośnik</a>.
+            Najechanie myszką na dany odnośnik sprawi, że zostanie on wyróżniony poprzez
+            przybranie następującej postaci: <a class="hoveredLink">aktywny odnośnik</a>.
+          </p>
+          <p>
+            Przyciski, ze względu na swoją funkcję, podzielone są na akcje i elementy formularzy.
+          </p>
+          <p>
+            Przyciski jako elementy formularzy wyglądają następująco:
+            <button class="button">Przykładowy przycisk</button>.
+            Kliknięcie takiego przycisku może w widoczny sposób spowodować zmianę
+            stanu wyświetlanego w danym momencie na ekranie, ale nigdy nie zmieni
+            stanu aplikacji. To znaczy, że po kliknięciu takiego przycisku,
+            a następnie odświeżeniu strony, ekran wróci do stanu początkowego.
+          </p>
+          <p>
+            Przyciski akcji przedstawiają się następująco:
+            <button class="action green">Uruchom</button>,
+            <button class="action blue">Zapisz</button>,
+            <button class="action red">Usuń</button><span class="noprint">,
+            <button class="action red" disabled>Zablokowana akcja</button></span>.
+            Kliknięcie akcji może zmienić stan wyświetlany w danym momencie na ekranie
+            oraz może zmienić stan aplikacji.
+          </p>
+        </section>
+        <section id="interface-messages">
+          <h1>Komunikaty</h1>
+          <p class="image">
+            <img class="screen" src="screens/interface-message.png" alt="Przykład komunikatu"><br>
+            Przykład komunikatu
+          </p>
+          <p>
+            Po wykonaniu niektórych akcji mogą zostać wyświetlonone komunikaty
+            informujące użytkownika o powodzeniu lub porażce.
+            Wyświetlane komunikaty przykrywają menu główne. Aby móc ponownie
+            korzystać z menu, komunikat należy zamknąć. Można to zrobić
+            poprzez pojedyńcze kliknięcie na obszarze zajmowanym przez menu
+            (a tym samym komunikat). Niektóre komunikaty same znikną po upływie
+            kilku sekund.
+          </p>
+          <p>
+            Komunikaty, ze względu na przekazywaną informację, różnią się od siebie
+            kolorem tła.
+          </p>
+          <p>
+            Komunikat informujący o pomyślnym wykonaniu akcji wygląda następująco:
+          </p>
+          <div class="message success">
+            <div>Użytkownik został dodany pomyślnie :)</div>
+          </div>
+          <p class="pbb">
+            Natomiast komunikat informujący o nieudanym wykonaniu akcji wygląda tak:
+          </p>
+          <div class="message error">
+            <div>Nie udało się dodać użytkownika :(</div>
+          </div>
+        </section>
+        <section id="interface-dialogs">
+          <h1>Okna dialogowe</h1>
+          <p>
+            Kliknięcie niektórych akcji sprawi, że na ekranie pojawi się okno
+            dialogowe. Okno dialogowe przykrywa aktualnie wyświetlany ekran
+            do momentu podjęcia akcji związanej z tym oknem dialogowym lub zamknięciem
+            go.
+          </p>
+          <div class="image noprint">
+            <div class="screen">
+              <object type="application/x-shockwave-flash" data="screens/interface-dialogs.swf" width=586 height=216>
+                <param name="movie" value="screens/interface-dialogs.swf">
+                <param name="quality" value="high">
+                <param name="bgcolor" value="#EEEEEE">
+                <param name="wmode" value="transparent">
+              </object>
+            </div>
+            <br>
+            Wyłączanie okna dialogowego
+          </div>
+          <p>
+            W celu zamknięcia okna dialogowego klikamy odnośnik
+            <a>Anuluj</a> (jeżeli jest dostępny)
+            lub wciskamy na klawiaturze klawisz <kbd>Esc</kbd>. W przypadku
+            korzystania z aplikacji w trybie dotykowym, aby zamknąć okno
+            dialogowe bez podejmowania akcji klikamy przycisk
+            <button class="action red" title="Zamknij dialog">X</button>.
+          </p>
+        </section>
+        <section id="interface-touch">
+          <h1>Tryb dotykowy</h1>
+          <p>
+            Przy monitorze zainstalowanym na hali produkcyjnej nie ma dostępnej
+            myszki ani klawiatury. W związku z tym, jeżeli aplikacja wykryje, że
+            jest wyświetlana na tym monitorze, to włącza wsparcie dla technologii
+            dotyku.
+          </p>
+          <p>
+            Po pierwsze, przewijanie zawartości w dół lub w górę odbywa się na tej samej
+            zasadzie jak w dotykowych smartfonach. Przeciągamy palcem po ekranie
+            w stronę, w którą chcemy przewinąć zawartość.
+          </p>
+          <div class="image noprint">
+            <object class="screen" type="application/x-shockwave-flash" data="screens/interface-scrolling.swf" width=586 height=432>
+              <param name="movie" value="screens/interface-scrolling.swf">
+              <param name="quality" value="high">
+              <param name="bgcolor" value="#ffffff">
+              <param name="wmode" value="transparent">
+            </object>
+            <br>
+            Przewijanie zawartości w trybie dotykowym
+          </div>
+          <p>
+            Po drugie, w menu pojawia się odnośnik <a>↻</a>,
+            po kliknięciu którego strona aplikacji
+            zostanie przeładowana. To samo stanie się, gdy na klawiaturze wciśnięty
+            zostanie klawisz <kbd>F5</kbd>. Funkcja ta może się przydać
+            w przypadku, gdy stan wyświetlany na ekranie nie odzwierciedla stanu
+            rzeczywistego (np. podczas wykonywania testu w module <a href="#dashboard">Dashboard</a>
+            nic się nie zmienia) lub klikanie jakieś
+            akcji nie zmienia stanu aplikacji wyświetlanego na ekranie
+            (np. po kliknięciu <button class="action blue">Zmień program</button>
+            w module Dashboard nie pokaże się okno dialogowe z listą programów).
+          </p>
+          <p>
+            Po trzecie, w menu pojawia się odnośnik <a>⇦</a>,
+            po kliknięciu którego użytkownik zostanie przeniesiony do poprzednio
+            wyświetlanego ekranu. To samo stanie się, gdy na klawiaturze wciśnięty
+            zostanie klawisz <kbd>Backspace</kbd>.
+          </p>
+          <p>
+            Po czwarte, jeżeli w danym momencie na ekranie aplikacji dostępne
+            jest pole formularza, to na dole ekranu pokaże się przycisk
+            <button class="button">Pokaż klawiaturę</button>, po kliknięciu
+            którego pojawi się wirtualna klawiatura:
+          </p>
+          <p class="image">
+            <img src="screens/interface-keyboard.png" alt="Wirtualna klawiatura"><br>
+            Wirtualna klawiatura
+          </p>
+          <p>
+            Najpierw należy aktywować pole formularza, które chcemy uzupełnić
+            klikając na nie, a następnie należy wyklikać odpowiednie znaki na klawiaturze.
+            Aby ukryć klawiaturę można kliknąć przycisk
+            <button class="button">Schowaj klawiaturę</button>
+            lub przejść do ekranu, na którym nie ma żadnych pól formularzy
+            (klawiatura i przycisk same znikną).
+          </p>
+          <p>
+            Po piąte, w prawym górnym rogu każdego okna dialogowego
+            pojawia się przycisk
+            <button class="action red" title="Zamknij dialog">X</button>,
+            po kliknięciu którego okno to zostanie zamknięte.
+          </p>
+        </section>
+      </section>
+      <section id="modules" class="pbb">
+        <h1>Moduły</h1>
+        <section id="users">
+          <h1>Użytkownicy</h1>
+          <p>
+            Moduł <em>Użytkownicy</em> pozwala na zarządzanie użytkownikami
+            aplikacji. Użytkowników można przeglądać, dodawać, modyfikować oraz usuwać.
+            Moduł ten odpowiada także za procesy uwierzytelniania i autoryzacji.
+          </p>
+          <p>
+            Każdy użytkownik posiada imię i nazwisko, adres e-mail, unikalny login,
+            hasło oraz listę uprawnień.
+          </p>
+          <p>
+            Uprawnienia, jakie można przydzielać użytkownikom opisane są w tabeli
+            uprawnień.
+          </p>
+          <table id="privileges" class="table">
+            <caption>Tabela uprawnień</caption>
+            <thead>
+              <tr>
+                <th>Uprawnienie
+                <th>Przydzielone
+                <th>Nie przydzielone
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Przeglądanie historii
+                <td>Użytkownik może przeglądać historię uruchomień programów.
+                <td>Użytkownik nie może przeglądać historii. Odnośnik <a>HISTORIA</a> nie pojawia się w menu.
+              <tr>
+                <td>Czyszczenie historii
+                <td>Użytkownik ma dostęp do akcji <button class="action blue">Wyczyść</button>
+                  w module <a href="#history">Historia</a> pozwalający na usuwanie
+                  starych wpisów.
+                <td>Użytkownik nie ma dostępu do ww. akcji.
+              <tr>
+                <td>Przeglądanie programów
+                <td>Użytkownik może przeglądać wszystkie programy.
+                <td>Użytkownik nie może przeglądać dodanych programów. Odnośnik <a>PROGRAMY</a> nie pojawia się w menu.
+              <tr>
+                <td>Zarządzanie programami
+                <td>Użytkownik ma dostęp do akcji <button class="action blue">Dodaj</button>,
+                  <button class="action blue">Edytuj</button> oraz <button class="action blue">Usuń</button>
+                  w module <a href="#programs">Programy</a>,
+                  pozwalających na dodanie nowego programu oraz zmodyfikowanie lub usunięcie
+                  istniejącego programu.
+                <td>Użytkownik nie ma dostępu do ww. akcji.
+              <tr>
+                <td>Przypisywanie programu na pozycję 1 i 2
+                <td>Użytkownik może podczas edycji programu przypisać go na pozycję 1 lub 2 w kontrolce ręcznego wyboru programu.
+                <td>Podczas edycji programu użytkownik nie widzi pól pozwalających na zmianę pozycji na jaką jest przypisany program.
+              <tr>
+                <td>Przypisywanie programu na pozycję 3
+                <td>Użytkownik ma dostęp do akcji <button class="action blue">Zmień program</button>
+                  w module <a href="#dashboard">Dashboard</a> pozwalający na przypisanie
+                  programu na pozycję 3 w kontrolce ręcznego wyboru programu.
+                <td>Użytkownik nie ma dostępu do ww. akcji.
+              <tr>
+                <td>Przeglądanie użytkowników
+                <td>Użytkownik może przeglądać wszystkich użytkowników.
+                <td>Użytkownik nie może przeglądać dodanych użytkowników. Odnośnik <a>UŻYTKOWNICY</a> nie pojawia się w menu.
+              <tr>
+                <td>Zarządzanie użytkownikami
+                <td>Użytkownik ma dostęp do akcji <button class="action blue">Dodaj</button>,
+                  <button class="action blue">Edytuj</button> oraz <button class="action blue">Usuń</button>
+                  w module <a href="#users">Użytkownicy</a>,
+                  pozwalających na dodanie nowego użytkownika oraz zmodyfikowanie lub usunięcie
+                  istniejącego użytkownika.
+                <td>Użytkownik nie ma dostępu do ww. akcji.
+              <tr>
+                <td>Korekta statystyk
+                <td>Użytkownik ma dostęp do akcji pozwalających na korektę wartości udanych
+                  i nieudanych testów w module <a href="#stats">Statystyki</a>.
+                <td>Użytkownik nie ma dostępu do ww. akcji.
+              <tr>
+                <td>Tworzenie nowej zmiany (statystyki)
+                <td>Użytkownik ma dostęp do akcji <button class="action red">Nowa zmiana</button>
+                  w module <a href="#stats">Statystyki</a>.
+                <td>Użytkownik nie ma dostępu do ww. akcji.
+            </tbody>
+          </table>
+          <p>
+            Niezalogowany użytkownik posiada następujący zestaw uprawnień:
+          </p>
+          <ul>
+            <li>Przeglądanie historii,
+            <li>Przeglądanie programów.
+          </ul>
+          <section id="users-authentication" class="pbb">
+            <h1>Uwierzytelnianie</h1>
+            <p class="image">
+              <img class="screen" src="screens/login.png" alt="Logowanie się do aplikacji"><br>
+              Logowanie się do aplikacji
+            </p>
+            <p>
+              Aby zalogować się na swoje konto, należy kliknąć odnośnik
+              <a>ZALOGUJ SIĘ</a> znajdujący się w menu. Na ekranie pojawi się
+              okno dialogowe z formularzem logowania. Należy podać login
+              i hasło konta, na które chcemy się zalogować, a następnie wcisnąć
+              przycisk <button class="button">Zaloguj się</button>.
+            </p>
+            <div class="info">
+              <p class="warn">
+                <strong>UWAGA!</strong> Użytkownik zostaje zalogowany
+                do 4 godzin po opuszczeniu aplikacji (tzn. zamknięciu przeglądarki)
+                bez wylogowania się!
+              </p>
+            </div>
+            <p class="image">
+              <img class="screen" src="screens/logout.png" alt="Okno dialogowe z formularzem logowania"><br>
+              Wylogowywanie się z aplikacji
+            </p>
+            <p>
+              Aby wylogować się z aplikacji, należy kliknąć odnośnik
+              <a>WYLOGUJ SIĘ</a> znajdujący się w menu, a następnie w oknie
+              dialogowym, które pojawi się na ekranie, należy kliknąć
+              przycisk <button class="action blue">Wyloguj się</button>.
+            </p>
+          </section>
+          <section id="users-browse">
+            <h1>Przeglądanie listy użytkowników <span class="privilege">Przeglądanie użytkowników</span></h1>
+            <p class="image">
+              <img class="screen" src="screens/users-browse.png" alt="Ekran przeglądania listy wszystkich użytkowników"><br>
+              Ekran listy wszystkich użytkowników
+            </p>
+            <p>
+              Po kliknięciu odnośnika <a>UŻYTKOWNIKÓW</a> w menu głównym, na ekranie
+              wyświetlona zostanie lista dodanych użytkownik oraz przycisk
+              akcji dodania nowego użytkownika.
+            </p>
+            <p>
+              Kliknięcie imienia i nazwiska użytkownika na liście, przeniesie użytkownika aplikacji do
+              <a href="#users-view">ekranu ze szczegółami danego użytkownika</a>.
+            </p>
+            <p>
+              Po kliknięciu przycisku <button class="action blue">Dodaj</button>,
+              użytkownik przeniesiony zostanie do <a href="#users-add">ekranu
+              z formularzem dodawania nowego użytkownika</a>. Przycisk ten
+              pojawia się użytkownikowi tylko wtedy, gdy ten posiada uprawnienie
+              <span class="privilege">Zarządzanie użytkownikami</span>.
+            </p>
+          </section>
+          <section id="users-view" class="pbb">
+            <h1>Przeglądanie wybranego użytkownika <span class="privilege">Przeglądanie użytkowników</span></h1>
+            <p class="image">
+              <img class="screen" src="screens/users-view.png" alt="Ekran przeglądania wybranego użytkownika"><br>
+              Ekran wybranego użytkownika
+            </p>
+            <p>
+              Na ekranie wybranego użytkownika dostępne są szczegółowe informacje
+              o danym użytkowniku: imię i nazwisko, login oraz adres e-mail.
+              Hasło oraz lista uprawnień nie jest wyświetlana.
+              Uprawnienia danego użytkownika można sprawdzić na
+              <a href="#users-edit">ekranie edycji tego użytkownika</a>.
+            </p>
+            <p>
+              Wybranie akcji <button class="action blue">Edytuj</button> sprawi,
+              że użytkownik przeniesiony zostanie do <a href="#users-edit">ekranu
+              z formularzem modyfikacji użytkownika</a>. Przycisk ten pojawia się
+              użytkownikowi tylko wtedy, gdy ten posiada uprawnienie
+              <span class="privilege">Zarządzanie użytkownikami</span>.
+            </p>
+            <p>
+              Wybranie akcji <button class="action blue">Usuń</button> sprawi,
+              że wyświetlone zostanie <a href="#users-delete">okno dialogowe
+              pytające o potwierdzenie usunięcia użytkownika</a>. Przycisk ten pojawia się
+              użytkownikowi tylko wtedy, gdy ten posiada uprawnienie
+              <span class="privilege">Zarządzanie użytkownikami</span>.
+            </p>
+          </section>
+          <section id="users-add">
+            <h1>Dodawanie użytkowników <span class="privilege">Przeglądanie użytkowników, Zarządzanie użytkownikami</span></h1>
+            <p class="image">
+              <img class="screen" src="screens/users-add.png" alt="Ekran dodawania nowego programu"><br>
+              Ekran dodawania nowego użytkownika
+            </p>
+            <p>
+              Na ekranie dodawania nowego programu dostępny jest formularz zawierający
+              następujące pola:
+            </p>
+            <ul>
+              <li>imię i nazwisko - pole tekstowe, wymagane,
+              <li>adres e-mail - pole tekstowe, wymagane,
+              <li>login - pole tekstowe, wymagane, wartość nie może się powtarzać,
+              <li>hasło - pole tekstowe, wymagane,
+              <li>powtórzenie hasła - pole tekstowe, wartość musi być identyczna
+                do tej w polu <em>hasło</em>,
+              <li>lista uprawnień - pola wyboru (zobacz <a href="#privileges">tabelę uprawnień</a>).
+            </ul>
+            <div class="info">
+              <p class="warn">
+                <strong>UWAGA!</strong> Aby nowy użytkownik był dostępny po opuszczeniu
+                ekranu dodawania nowego użytkownika, należy go wcześniej zapisać
+                wciskając przycisk <button class="action blue">Zapisz</button>!
+              </p>
+            </div>
+          </section>
+          <section id="users-edit" class="pbb">
+            <h1>Modyfikacja użytkowników <span class="privilege">Przeglądanie użytkowników, Zarządzanie użytkownikami</span></h1>
+            <div class="image">
+              <img class="screen" src="screens/users-edit.png" alt="Ekran modyfikowania istniejącego użytkownika">
+              <br>
+              Ekran modyfikowania istniejącego użytkownika
+            </div>
+            <p>
+              Na ekranie modyfikowania użytkownika dostępny jest formularz
+              zawierający następujące pola:
+            </p>
+            <ul>
+              <li>imię i nazwisko - pole tekstowe, wymagane,
+              <li>adres e-mail - pole tekstowe, wymagane,
+              <li>login - pole tekstowe, wymagane, wartość nie może się powtarzać,
+              <li>hasło - pole tekstowe, opcjonalne (należy podać tylko w przypadku nadawania nowego hasła),
+              <li>powtórzenie hasła - pole tekstowe, wartość musi być identyczna
+                do tej w polu <em>hasło</em>,
+              <li>lista uprawnień - pola wyboru (zobacz <a href="#privileges">tabelę uprawnień</a>).
+            </ul>
+            <div class="info">
+              <p class="warn">
+                <strong>UWAGA!</strong> Aby dokonane w użytkowniku zmiany były
+                dostępne po opuszczeniu ekranu modyfikowania użytkownika, należy je
+                wcześniej zapisać wciskając przycisk
+                <button class="action blue">Zapisz</button>!
+              </p>
+            </div>
+          </section>
+          <section id="users-delete">
+            <h1>Usuwanie użytkowników <span class="privilege">Przeglądanie użytkowników, Zarządzanie użytkownikami</span></h1>
+            <div class="image">
+              <img class="screen" src="screens/users-delete.png" alt="Okno dialogowe usuwania istniejącego użytkownika">
+              <br>
+              Okno dialogowe usuwania istniejącego użytkownika
+            </div>
+            <p>
+              Aby usunąć użytkownika, na <a href="#programs-view">ekranie wybranego użytkownika</a>
+              należy wcisnąć przycisk <button class="action blue">Usuń</button>,
+              a następnie na oknie dialogowym, które się pojawi, należy potwierdzić
+              usunięcie użytkownika poprzez wciśnięcie przycisku <button class="action red">Usuń</button>.
+            </p>
+            <div class="info">
+              <p class="warn">
+                <strong>UWAGA!</strong> Wciśnięcie przycisku
+                <button class="action red">Usuń</button> bezpowrotnie usunie
+                danego użytkownika z aplikacji!
+              </p>
+            </div>
+          </section>
+        </section>
+        <section id="programs" class="pbb">
+          <h1>Programy</h1>
+          <p>
+            Moduł <em>Programy</em> pozwala na zarządzanie programami, które
+            następnie uruchamiane są na stesterze. Programy można przeglądać,
+            dodawać, modyfikować oraz usuwać.
+          </p>
+          <p>
+            Każdy program składa się z nazwy, czasu trwania, czasu odstępu HRS,
+            czasu świecenia HRS, ilości cykli HRS oraz flagi wskazującej czy
+            dany program ma być przypisany do kontrolki ręcznego wyboru programu.
+          </p>
+          <section id="programs-browse">
+            <h1>Przeglądanie listy programów <span class="privilege">Przeglądanie programów</span></h1>
+            <p class="image">
+              <img class="screen" src="screens/programs-browse.png" alt="Ekran przeglądania listy wszystkich programów"><br>
+              Ekran listy wszystkich programów
+            </p>
+            <p>
+              Po kliknięciu odnośnika <a>PROGRAMY</a> w menu głównym, na ekranie
+              wyświetlona zostanie lista dostępnych programów oraz przycisk
+              akcji dodania nowego programu.
+            </p>
+            <p>
+              Kliknięcie nazwy programu na liście, przeniesie użytkownika do
+              <a href="#programs-view">ekranu ze szczegółami danego programu</a>.
+            </p>
+            <p>
+              Po kliknięciu przycisku <button class="action blue">Dodaj</button>,
+              użytkownik przeniesiony zostanie do <a href="#programs-add">ekranu
+              z formularzem dodawania nowego programu</a>. Przycisk ten
+              pojawia się użytkownikowi tylko wtedy, gdy ten posiada uprawnienie
+              <span class="privilege">Zarządzanie programami</span>.
+            </p>
+          </section>
+          <section id="programs-view">
+            <h1>Przeglądanie wybranego programu <span class="privilege">Przeglądanie programów</span></h1>
+            <p class="image">
+              <img class="screen" src="screens/programs-view.png" alt="Ekran przeglądania wybranego programu"><br>
+              Ekran wybranego programu
+            </p>
+            <p>
+              Na ekranie wybranego programu dostępne są szczegółowe informacje
+              o danym programie: nazwa, informacja, czy program jest powtarzany
+              w nieskończoność, czas trwania oraz zdefiniowane kroki
+              (w formacie wykresu oraz tabeli).
+              Ponadto, jeżeli użytkownik posiada uprawnienie
+              <span class="privilege">Przeglądanie historii</span>, to
+              wyświetlana jest lista 5 ostatnich wpisów z historii dotyczących
+              danego programu.
+            </p>
+            <p>
+              Wybranie akcji <button class="action blue">Edytuj</button> sprawi,
+              że użytkownik przeniesiony zostanie do <a href="#programs-edit">ekranu
+              z formularzem modyfikacji programu</a>. Przycisk ten pojawia się
+              użytkownikowi tylko wtedy, gdy ten posiada uprawnienie
+              <span class="privilege">Zarządzanie programami</span>.
+            </p>
+            <p>
+              Wybranie akcji <button class="action blue">Usuń</button> sprawi,
+              że wyświetlone zostanie <a href="#programs-delete">okno dialogowe
+              pytające o potwierdzenie usunięcia programu</a>. Przycisk ten pojawia się
+              użytkownikowi tylko wtedy, gdy ten posiada uprawnienie
+              <span class="privilege">Zarządzanie programami</span>.
+            </p>
+          </section>
+          <section id="programs-add">
+            <h1>Dodawanie programów <span class="privilege">Przeglądanie programów, Zarządzanie programami</span></h1>
+            <div class="image">
+              <img class="screen" src="screens/programs-add.png" alt="Ekran dodawania nowego programu"><br>
+              Ekran dodawania nowego programu
+            </div>
+            <p>
+              Na ekranie dodawania nowego programu dostępny jest formularz zawierający
+              następujące pola:
+            </p>
+            <ul>
+              <li>nazwa programu - pole tekstowe, wymagane,
+              <li>czas trwania fazy świecenia - pole tesktowe, wymagane, liczba sekund,
+              <li>czas odstępu między fazami świecenia HRS - pole tekstowe, liczba sekund,
+              <li>czas trwania fazy świecenia HRS - pole tekstowe, liczba sekund
+              <li>ilość cykli HRS - pole tekstowe, liczba.
+            </ul>
+            <p>
+              Wartości pól: czas trwania, czas odstępu HRS oraz czas świecenia HRS
+              jako wartość przyjmują liczbę sekund. Jako ułatwienie dla użytkownika, zaimplementowany
+              został prosty konwerter jednostek czasu (godziny, minuty i sekundy)
+              do sekund. Dodając po danej liczbie jednostkę czasu:
+              <code>h</code>, <code>min</code> (lub <code>m</code>) lub <code>s</code>
+              i zapisaniu danych, jego wartość zostanie przekonwertowana
+              do liczby sekund znajdującej się w podanym czasie. Wszystkie
+              jednostki mogą wystąpić w tym samym momencie i w dowolnym porządku.
+              Odstępy między liczbami a jednostkami są opcjonalne. Poniższa
+              tabela przedstawia przykładowe wyniki konwersji:
+            </p>
+            <table class="table">
+              <caption>Przykłady wyników automatycznej konwersji czasu</caption>
+              <thead>
+                <tr>
+                  <th>Wpisany czas trwania
+                  <th>Otrzymana liczba sekund
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>10 s<td>10</tr>
+                <tr><td>5 min<td>300</tr>
+                <tr><td>1 h<td>3600</tr>
+                <tr><td>5 min 10 s<td>310</tr>
+                <tr><td>1 h 10 s<td>3610</tr>
+                <tr><td>1 h 5 min<td>3900</tr>
+                <tr><td>1 h 5 min 10 s<td>3910</tr>
+                <tr><td>5m10s<td>310</tr>
+                <tr><td>10s5m1h<td>3910</tr>
+                <tr><td>1.5 h, 25.3 min i 33 s<td>6951</tr>
+              </tbody>
+            </table>
+            <div class="info">
+              <p class="warn">
+                <strong>UWAGA!</strong> Aby nowy program był dostępny po opuszczeniu
+                ekranu dodawania nowego programu, należy go wcześniej zapisać
+                wciskając przycisk <button class="action blue">Zapisz</button>!
+              </p>
+            </div>
+          </section>
+          <section id="programs-edit" class="pbb">
+            <h1>Modyfikacja programów <span class="privilege">Przeglądanie programów, Zarządzanie programami</span></h1>
+            <div class="image">
+              <img class="screen" src="screens/programs-edit.png" alt="Ekran modyfikowania istniejącego programu">
+              <br>
+              Ekran modyfikowania istniejącego programu
+            </div>
+            <p>
+              Na ekranie modyfikowania programu dostępny jest formularz
+              zawierający następujące pola:
+            </p>
+            <ul>
+              <li>nazwa programu - pole tekstowe, wymagane,
+              <li>kontrolka ręcznego wyboru programu - pole jednorazowego wyboru, wymagane,
+              <li>czas trwania fazy świecenia - pole tesktowe, wymagane, liczba sekund,
+              <li>czas odstępu między fazami świecenia HRS - pole tekstowe, liczba sekund,
+              <li>czas trwania fazy świecenia HRS - pole tekstowe, liczba sekund
+              <li>ilość cykli HRS - pole tekstowe, liczba.
+            </ul>
+            <p>
+              <em>Kontrolka ręcznego wyboru programu</em> to przełącznik piórkowy,
+              znajdujący się na pulpicie sterującym testera. W danym momencie
+              przyjmuje on jedną z trzech pozycji. Na pozycjach 1 (w lewo) i 2 (środek) znajdują
+              się programy, który zostały w aplikacji przypisane odpowiednio na pozycję 1 i 2,
+              a na pozycji 3 (w prawo) znajduje się program, który został przypisany
+              z wykorzystaniem funkcji <a href="#control">Zmień program</a>
+              w module <a href="#dashboard">Dashboard</a>.
+            </p>
+            <div class="info">
+              <p class="warn">
+                <strong>UWAGA!</strong> Aby dokonane w programie zmiany były
+                dostępne po opuszczeniu ekranu modyfikowania programu, należy je
+                wcześniej zapisać wciskając przycisk
+                <button class="action blue">Zapisz</button>!
+              </p>
+            </div>
+            <div class="info">
+              <p class="warn">
+                <strong>UWAGA!</strong> Jeżeli zmieniany program jest aktualnie uruchomiony
+                lub pozycja na kontrolce ręcznego wyboru programu została zmieniona
+                na pozycję, którą zajmuje aktualnie uruchomiony program to nie da
+                się zapisać zmian! Należy poczekać wtedy, aż wykonywany program się zakończy.
+              </p>
+            </div>
+          </section>
+          <section id="programs-delete">
+            <h1>Usuwanie programów <span class="privilege">Przeglądanie programów, Zarządzanie programami</span></h1>
+            <div class="image">
+              <img class="screen" src="screens/programs-delete.png" alt="Okno dialogowe usuwania istniejącego programu">
+              <br>
+              Okno dialogowe usuwania istniejącego programu
+            </div>
+            <p>
+              Aby usunąć program, na <a href="#programs-view">ekranie wybranego programu</a>
+              należy wcisnąć przycisk <button class="action blue">Usuń</button>,
+              a następnie na oknie dialogowym, które się pojawi, należy potwierdzić
+              usunięcie programu poprzez wciśnięcie przycisku <button class="action red">Usuń</button>.
+            </p>
+            <div class="info">
+              <p class="warn">
+                <strong>UWAGA!</strong> Wciśnięcie przycisku
+                <button class="action red">Usuń</button> bezpowrotnie usunie
+                dany program z listy programów!
+              </p>
+            </div>
+          </section>
+        </section>
+        <section id="history" class="pbb">
+          <h1>Historia</h1>
+          <p>
+            W module <em>Historia</em> dostępne są do wglądu wszystkie zapisane
+            zakończenia wykonywania programów na strefach.
+          </p>
+          <section id="history-browse">
+            <h1>Przeglądanie listy wpisów <span class="privilege">Przeglądanie historii</span></h1>
+            <div class="image">
+              <img class="screen" src="screens/history-browse.png" alt="Ekran wpisów w historii"><br>
+              Ekran wpisów w historii
+            </div>
+            <p>
+              Na ekranie wpisów w historii dostępna jest filtrowalna tabela
+              wszystkich zapisanych zakończonych wykonań programów.
+              Każdy wiersz w tabeli odpowiada innemu wpisowi w historii
+              i zawiera następujące informacje:
+            </p>
+            <ul>
+              <li>
+                stan zakończenia programu
+                (<em class="programFinished"><span class="stateIndicator"></span> Ukończony pomyślnie</em>,
+                <em class="programStopped"><span class="stateIndicator"></span> Zatrzymany</em>,
+                <em class="programErrored"><span class="stateIndicator"></span> Zatrzymany z błędem</em>),
+              <li>nazwa wykonywanego programu,
+              <li>data włączenia programu,
+              <li>czas trwania programu.
+            </ul>
+            <p>
+              Kliknięcie na wiersz tabeli przeniesie użytkownika do
+              <a href="#history-view">ekranu wybranego wpisu</a>, gdzie dostępnych
+              jest więcej informacji dotyczących wybranego uruchomienia programu.
+            </p>
+            <p>
+              Gdy wpisów w historii będzie więcej niż 10, lista wpisów dzielona
+              jest na strony. Nawigacja między stronami odbywa się poprzez
+              klikanie odnośników wyświetlanych pod tabelą wpisów.
+              Użytkownik może przejść do wybranej strony klikając na odpowiadający
+              jej numer.
+            </p>
+            <div class="info">
+              <p class="ok">
+                <strong>UWAGA!</strong> W danym momencie wyświetlanych jest
+                maksymalnie pięć numerów stron: numer aktualnej strony, dwa
+                numery stron poprzednich oraz dwa numery stron następnych
+                (nawet w przypadku, gdy dostępnych stron jest więcej).
+              </p>
+            </div>
+            <p>
+              Listę wpisów można filtrować korzystając z formularza znajdującego
+              się nad tabelą (widoczna tylko po wciśnięciu akcji
+              <button class="action blue">Filtruj</button>).
+              Wyświetlane dane można ograniczyć do:
+            </p>
+            <ul>
+              <li>wybranego programu,
+              <li>stanów zakończenia wykonywania programu,
+              <li>czasu uruchomienia programu,
+              <li>czasu zakończenia programu.
+            </ul>
+            <div class="info">
+              <p class="ok">
+                <strong>UWAGA!</strong> W przypadku wybrania kilku filtrów,
+                wyświetlane są tylko te dane, które spełniają wszystkie wybrane kryteria.
+                Na przykład wybranie jednego programu, stanu zakończenia
+                <em>Ukończony pomyślnie</em>, wpisanie w polu <strong>Od</strong>
+                wartości <em>2012-02-25</em>, a w polu <strong>Do</strong>
+                wartości <em>2012-02-26 15:00</em> spowoduje wyświetlenie
+                wszystkich wykonań danego programu, które zakończyły się pomyślnie
+                między 2012-02-25 00:00:00 a 2012-02-26 15:00:00.
+              </p>
+            </div>
+            <p>
+              Filtry aplikowane są w locie i zapisywane do momentu opuszczenia
+              aplikacji przez użytkownika (tzn. zamknięcia karty w przęglądarce).
+              Wszystkie aktywne filtry można usunąć klikając przycisk
+              <button class="button" type="button">Usuń wszystkie filtry</button>
+            </p>
+            <p>
+              Wybranie akcji <button class="action blue">Wyczyść</button> sprawi,
+              że wyświetlone zostanie <a href="#history-purge">okno dialogowe
+              z formularzem czyszczenia historii</a>. Przycisk ten pojawia się
+              użytkownikowi tylko wtedy, gdy ten posiada uprawnienie
+              <span class="privilege">Czyszczenie historii</span>.
+            </p>
+          </section>
+          <section id="history-view" class="pbb">
+            <h1>Przeglądanie wybranego wpisu <span class="privilege">Przeglądanie historii</span></h1>
+            <div class="image">
+              <img class="screen" src="screens/history-view.png" alt="Ekran wybranego wpisu historii">
+              <br>
+              Ekran wybranego wpisu historii
+            </div>
+            <p>
+              Na ekranie wpisu historii znajdują się szczegółowe informacje
+              dotyczące wybranego uruchomienia programu:
+            </p>
+            <ul>
+              <li>nazwa programu, który był wykonywany,
+              <li>tryb uruchomienia programu (<em>Ręczny</em> lub <em>Automatyczny</em>),
+              <li>stan zakończenia wykonywania programu (<em>Ukończony</em>, <em>Zatrzymany</em> lub <em>Błąd</em>),
+              <li>opis błędu (jeżeli stan zakończenia wykonywania programu to <em>Błąd</em>),
+              <li>data uruchomienia programu,
+              <li>data zakończenia programu,
+              <li>czas trwania programu,
+              <li>czas odstępu HRS programu,
+              <li>czas świecenia HRS programu,
+              <li>ilość cykli HRS programu (ile wykonano/ile było do wykonania),
+              <li>dane o temperaturze, poziomie światła, napięciu i natężeniu zbierane
+                co sekundę podczas trwania testu i przedstawione w formie wykresów.
+            </ul>
+            <div class="info">
+              <p class="ok">
+                <strong>UWAGA!</strong> Dane wyświetlane na ekranie
+                wpisu historii odzwierciedlają stan, jaki istniał w momencie
+                uruchomienia programu. Zmiany wprowadzone do programu po
+                uruchomieniu wykonywania programu nie mają wpływu na dany wpis.
+              </p>
+            </div>
+          </section>
+          <section id="history-purge">
+            <h1>Czyszczenie historii <span class="privilege">Przeglądanie historii, Czyszczenie historii</span></h1>
+            <div class="image">
+              <img class="screen" src="screens/history-purge.png" alt="Okno dialogowe czyszczenia historii">
+              <br>
+              Okno dialogowe czyszczenia historii
+            </div>
+            <p>
+              Podając liczbę dni i klikając przycisk <button class="action red">Usuń</button>,
+              można usunąć z historii wpisy, które są starsze niż podana liczba dni, tzn.
+              wpisy programów uruchomionych <code>24 * liczba dni</code> godzin temu.
+            </p>
+            <div class="info">
+              <p class="warn">
+                <strong>UWAGA!</strong> Podając jako liczba dni wartość <code>0</code>
+                sprawi, że z historii usunięte zostaną wszystkie wpisy!
+              </p>
+            </div>
+          </section>
+        </section>
+        <section id="dashboard" class="pbb">
+          <h1>Dashboard</h1>
+          <div class="image">
+            <img class="screen" src="screens/dashboard.png" alt="Dashboard"><br>
+            Dashboard
+          </div>
+          <p>
+            Dashboard pozwala użytkownikowi na monitorowanie aktualnego stanu testera
+            oraz na zmianę programu przypisanego na pozycję 3 w kontrolce ręcznego
+            wyboru programu.
+          </p>
+          <p>
+            Widok podzielony jest na dwie strefy: aktualny stan i ostatni test.
+          </p>
+          <p>
+            Sekcja <em>Ostatni test</em> przedstawia krótką informację o stanie
+            w jakim zakończył się ostatnio wykonywany test (więcej informacji
+            o tym teście dostępne jest w module <a href="#history">Historia</a>).
+            Kwadrat znajdujący się na lewo od nazwy wybranego programu wskazuje
+            na stan zakończenia testu:
+          </p>
+          <ul class="states">
+            <li><span class="programFinished"><span class="stateIndicator"></span></span>
+              test zakończył się pomyślnie.
+            <li><span class="programStopped"><span class="stateIndicator"></span></span>
+              test został zatrzymany, ponieważ lampa przestała świecić.
+            <li><span class="programErrored"><span class="stateIndicator"></span></span>
+              test został zatrzymany z powodu błędu.
+          </ul>
+          <p>
+            Sekcja <em>Aktualny stan</em> wskazuje jaki program jest wybrany na testerze,
+            wartości parametrów: temperatury, poziomu światła, napięcia i
+            natężenia oraz pasek postępu wykonywania programu.
+            Kwadrat znajdujący się na lewo od nazwy wybranego programu wskazuje:
+          </p>
+          <ul class="states">
+            <li><span class="disconnected"><span class="stateIndicator"></span></span>
+              nie ma połączenia ze sterownikiem.
+            <li><span class="connected"><span class="stateIndicator"></span></span>
+              jest połączenie ze sterownikiem, gotowy do pracy.
+            <li><span class="programRunning"><span class="stateIndicator"></span></span>
+              program jest aktualnie wykonywany.
+          </ul>
+          <p>
+            Jeżeli wybrany program ma zdefiniowaną opcję HRS, to po prawej stronie
+            paska postępu pojawią się kwadraty w ilości równej ilości cykli HRS danego
+            programu. W środku każdego kwadratu znajduje się licznik, który przy
+            wykonywaniu danego cyklu HRS będzie odliczał liczbę sekund w dół.
+            W zależności od fazy w jakiej znajduje się test, kwadraty te będą
+            przybierały inne barwy:
+          </p>
+          <ul class="states">
+            <li><span class="disconnected"><span class="stateIndicator"></span></span>
+              wskazuje, że dany cykl HRS jeszcze się nie rozpoczął.
+            <li><span class="programStopped"><span class="stateIndicator"></span></span>
+              wskazuje, że dany cykl HRS rozpoczął się i znajduje się w fazie wyłączenia świecenia
+              (odliczanie wskazuje czas odstępu HRS).
+            <li><span class="programRunning"><span class="stateIndicator"></span></span>
+              wskazuje, że dany cykl HRS znajduje się w fazie świecenia
+              (odliczanie wskazuje czas świecenia HRS).
+            <li><span class="programFinished"><span class="stateIndicator"></span></span>
+              wskazuje, że dany cykl HRS zakończył się pomyślnie.
+          </ul>
+          <p>
+            Wybranie akcji <a href="#dashboard-changeProgram" class="action blue">Zmień program</a>
+            otworzy okno dialogowe z możliwością zmiany programu przypisanego na pozycji 3
+            w kontrolce ręcznego wyboru programu. Akcja ta widoczna jest tylko
+            dla użytkowników z uprawnieniem
+            <span class="privilege">Przypisywanie programu na pozycję 3</span>.
+          </p>
+          <div class="info">
+            <p class="warn">
+              <strong>UWAGA!</strong> W trakcie wykonywania programu akcja
+              <a href="#dashboard-changeProgram" class="action blue">Zmień program</a>
+              jest niedostępna!
+            </p>
+          </div>
+          <p>
+            Wybranie akcji <a href="#stats" class="action blue">Statystyki</a>
+            przeniesie użytkownika do modułu <a href="#stats">Statystyki</a>.
+          </p>
+          <section id="dashboard-changeProgram" class="pbb">
+            <h1>Zmiana programu <span class="privilege">Przypisywanie programu na pozycję 3</span></h1>
+            <div class="image">
+              <img class="screen" src="screens/dashboard-changeProgram.png" alt="Dashboard"><br>
+              Okno dialogowe ze zmianą programu
+            </div>
+            <p>
+              Aby zmienić program przypisany na pozycji 3 w kontrolce ręcznego
+              wyboru programu, należy kliknąć przycisk
+              <button class="action blue">Zmień program</button> w module
+              <a href="#dashboard">Dashboard</a>. Otworzone zostanie okno dialogowe
+              z listą wszystkich programów, oprócz dwóch, które przypisane
+              są na pozycjach 1 i 2 w kontrolce ręcznego wyboru programu.
+              Po wybraniu programu przez kliknięcie na jego nazwę na liście programów,
+              szczegóły danego programu zostaną wyświetlone w obszarze <em>Wybrany program</em>.
+              Jeżeli chcemy wybrać ten program, wciskamy przycisk
+              <button class="action green">Przypisz</button>, w przeciwnym wypadku
+              wciskamy przycisk <button class="action red">Anuluj</button>.
+            </p>
+          </section>
+        </section>
+        <section id="stats">
+          <h1>Statystyki</h1>
+          <div class="image">
+            <img class="screen" src="screens/stats.png" alt="Statystyki"><br>
+            Ekran statystyk
+          </div>
+          <p>
+            Moduł statystyk zbiera dane o ilości testów zakończonych powodzeniem
+            (zielona liczba) i niepowodzeniem (czerwona liczba) na danej zmianie
+            i wyświetla wartości aktualnej zmiany na ekranie.
+          </p>
+          <p>
+            Jeżeli użytkownik posiada uprawnienie
+            <span class="privilege">Tworzenie nowej zmiany (statystyki)</span>,
+            to ma dostęp do akcji <button class="action red">Nowa zmiana</button>,
+            po kliknięciu której aktualne wartości zostaną zapisane wraz z datą
+            zakończenia zmiany oraz stworzony zostanie wyzerowany
+            rekord dla nowej zmiany z aktualnym czasem jako czasem rozpoczęcia tej
+            zmiany.
+          </p>
+          <p>
+            Jeżeli użytkownik posiada uprawnienie
+            <span class="privilege">Korekta statystyk</span>, to ma dostęp do
+            akcji pozwalających mu na
+            zmniejszenie (<button class="action blue">&#x21e9;</button>),
+            wyzerowanie (<button class="action blue">0</button>) lub
+            zwiększenie (<button class="action blue">&#x21e7;</button>)
+            danej wartości.
+          </p>
+        </section>
+      </section>
+      <section id="appendix-a" class="pbb">
+        <h1>Informacje o sprzęcie</h1>
+        <dl>
+          <dt>Adres IP i port serwera aplikacji w sieci bezprzewodowej <em>ML_WLAN</em>
+          <dd><code>192.168.21.59:80</code>
+          <dt>Adres IP i port serwera aplikacji w sieci przewodowej
+          <dd><code>161.87.64.20:8082</code>
+        </dl>
+      </section>
+    </div>
+    <script src="../vendor/jquery-min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
