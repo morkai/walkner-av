@@ -18,7 +18,6 @@ function spawnSerproxy()
   serproxy.stderr.setEncoding('utf8');
   serproxy.stderr.on('data', function(data)
   {
-    console.log(data);
     if (data.indexOf('resource is locked') !== -1
       || data.indexOf('connection refused') !== -1)
     {
