@@ -3,7 +3,7 @@
  *
  * @type {Boolean}
  */
-exports.enabled = true;
+exports.enabled = false;
 
 /**
  * A command to execute if `enabled` is `TRUE`.
