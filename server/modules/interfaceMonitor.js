@@ -1,5 +1,5 @@
 var exec = require('child_process').exec;
-var config = require('../../config/controller').interfaceMonitor;
+var config = require('../../config/interfaceMonitor');
 
 function startInterfaceMonitor()
 {
@@ -32,7 +32,7 @@ function hasIpAddress(done)
     {
       return done(null, false);
     }
-    
+
     return done(null, stdout.indexOf(config.ipAddress) !== -1);
   });
 }
@@ -42,4 +42,14 @@ function restartInterface()
   exec(config.restartCmd, startInterfaceMonitor);
 }
 
-exports.start = startInterfaceMonitor;
+exports.boot = function(done)
+{
+  if (config.enabled)
+  {
+    startInterfaceMonitor();
+
+    console.debug('Started the network interface monitor!');
+  }
+
+  done();
+};

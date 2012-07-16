@@ -10,7 +10,8 @@ var MODULES = [
   'models',
   'controller',
   'routing',
-  'stats'
+  'stats',
+  'interfaceMonitor'
 ];
 
 var fs = require('fs');

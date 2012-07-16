@@ -329,11 +329,6 @@ function sendPredefinedPrograms(done)
     });
 }
 
-if (config.interfaceMonitor && config.interfaceMonitor.enabled)
-{
-  require('./interfaceMonitor').start();
-}
-
 if (config.serproxy && config.serproxy.enabled)
 {
   require('./serproxy').start();

@@ -60,7 +60,6 @@ Logs configuration. Logs of the following levels will be redirected to `stdout`:
 
   * `productionLevels` - object defining what logs should make it through
     the log filter, if the `NODE_ENV` is set to `production`.
-
   * `developmentLevels` - object defining what logs should make it through
     the log filter, if the `NODE_ENV` is set to `development`.
 
@@ -71,7 +70,6 @@ Configuration of authentication and authorization.
   * `superUser` - object of a user with all privileges.
     One can log in as a super user even if it's not in the database.
     Handy, if run on an empty database.
-
   * `guestUser` - object of a user assigned to not logged in browser clients.
 
 ### browser.js
@@ -85,35 +83,24 @@ the production environment.
 
   * `simulation` - whether to run the simulation of a test if
     the `programRunning` tag changes to `1`.
-
   * `master` - configuration of a MODBUS master:
 
     * `timerFactor` - tags `programTime`, `hrsTime` and `hrsInterval`
       are multiplied by this value before sending them off to the slave.
-
     * `type` - connection and transport type.
       Possible values are: `tcp`, `tcp-rtu`, `tcp-ascii`, `serial-ascii`
       and `serial-rtu`.
-
     * `host` - slave host/IP address if using TCP connection.
-
     * `port` - slave listening port if using TCP connection.
-
     * `timeout` - default MODBUS request timeout.
-
     * `maxTimeouts` - if the number of consecutive timeouts is equal to
       `maxTimeouts`, then the connection is destroyed and recreated.
-
     * `unit` - default MODBUS slave unit ID.
-
     * `maxRetries` - a number of times a MODBUS request is retried on error
       before giving up and handing the error to the user's handler function.
-
     * `interval` - default interval between requests,
-
     * `maxConcurrentRequests` - how many parallel requests can be sent to
       the slave.
-
     * `requestOnReconnectDelay` - on reconnect, wait the specified number
       of milliseconds before executing the queued requests and transactions.
 
@@ -128,15 +115,10 @@ the production environment.
     Each object must have following properties:
 
     * `id` - an ID of the transaction.
-
     * `fn` - a MODBUS function code (`0x01`, `0x02` or `0x03`).
-
     * `address` - a starting address of the first tag.
-
     * `tags` - an array of tag names,
-
     * `writable` - whether the tags specified in this transaction are writable.
-
     * `interval` - a number of milliseconds between executions of
       this transaction.
 
@@ -145,35 +127,29 @@ the production environment.
 
     * `min` - if the read value is lower than the `min` value, it is set
       to `min`.
-
     * `max` - if the read value is greater than the `max` value, it is set
       to `max`.
-
     * `scaler` - a function that takes a raw value from MODBUS slave and
       transforms it to another value before handing it to application for
       further processing.
 
-  * `interfaceMonitor` - sets up a network interface monitor
-
-    * `enabled` - whether to monitor the network interface.
-
-    * `ipAddress` - an IP address to look for in `stdout` of `checkCmd`.
-
-    * `checkCmd` - a command that returns the current IP address on
-      of the monitored network interface.
-
-    * `restartCmd` - a command executed if the `ipAddress` could not be found
-      in `stdout` of `checkCmd`.
-
-    * `interval` - a number of milliseconds between `checkCmd` executions.
-
   * `serproxy` - sets up a [serproxy](http://developer.berlios.de/project/showfiles.php?group_id=3590)
 
     * `enabled` - whether to spawn the process.
-
     * `cmd` - command to execute if `enabled` is `TRUE`.
-
     * `args` - an array of command arguments.
+
+### interfaceMonitor.js
+
+Configuration of the network interface monitor module.
+
+  * `enabled` - whether to monitor the network interface.
+  * `ipAddress` - an IP address to look for in `stdout` of `checkCmd`.
+  * `checkCmd` - a command that returns the current IP address
+    of the monitored network interface.
+  * `restartCmd` - a command executed if the `ipAddress` could not be found
+    in `stdout` of `checkCmd`.
+  * `interval` - a number of milliseconds between `checkCmd` executions.
 
 ### mongod.conf
 
