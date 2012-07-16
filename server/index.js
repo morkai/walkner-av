@@ -12,7 +12,8 @@ var MODULES = [
   'routing',
   'stats',
   'interfaceMonitor',
-  'serproxy'
+  'serproxy',
+  'touchMonitor'
 ];
 
 var fs = require('fs');
