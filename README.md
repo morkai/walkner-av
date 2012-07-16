@@ -133,12 +133,6 @@ the production environment.
       transforms it to another value before handing it to application for
       further processing.
 
-  * `serproxy` - sets up a [serproxy](http://developer.berlios.de/project/showfiles.php?group_id=3590)
-
-    * `enabled` - whether to spawn the process.
-    * `cmd` - command to execute if `enabled` is `TRUE`.
-    * `args` - an array of command arguments.
-
 ### interfaceMonitor.js
 
 Configuration of the network interface monitor module.
@@ -150,6 +144,15 @@ Configuration of the network interface monitor module.
   * `restartCmd` - a command executed if the `ipAddress` could not be found
     in `stdout` of `checkCmd`.
   * `interval` - a number of milliseconds between `checkCmd` executions.
+
+### serproxy.js
+
+Configuration of the [serproxy](http://developer.berlios.de/project/showfiles.php?group_id=3590) daemon.
+
+  * `enabled` - whether to spawn the process.
+  * `cmd` - command to execute if `enabled` is `TRUE`.
+  * `args` - an array of command arguments.
+  * `opts` - `child_process.spawn` options.
 
 ### mongod.conf
 

@@ -1,5 +1,5 @@
 var spawn = require('child_process').spawn;
-var config = require('../../config/controller');
+var config = require('../../config/serproxy');
 var serproxy;
 
 function spawnSerproxy()
@@ -13,11 +13,12 @@ function spawnSerproxy()
     console.debug('[serproxy] Starting...');
   }
 
-  serproxy = spawn(config.serproxy.cmd, config.serproxy.args);
+  serproxy = spawn(config.cmd, config.args, config.opts);
 
   serproxy.stderr.setEncoding('utf8');
   serproxy.stderr.on('data', function(data)
   {
+    console.log(data);
     if (data.indexOf('resource is locked') !== -1
       || data.indexOf('connection refused') !== -1)
     {
@@ -36,4 +37,12 @@ function spawnSerproxy()
   });
 }
 
-exports.start = spawnSerproxy;
+exports.boot = function(done)
+{
+  if (config.enabled)
+  {
+    spawnSerproxy();
+  }
+
+  done();
+};

@@ -11,7 +11,8 @@ var MODULES = [
   'controller',
   'routing',
   'stats',
-  'interfaceMonitor'
+  'interfaceMonitor',
+  'serproxy'
 ];
 
 var fs = require('fs');

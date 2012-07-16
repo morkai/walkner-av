@@ -329,11 +329,6 @@ function sendPredefinedPrograms(done)
     });
 }
 
-if (config.serproxy && config.serproxy.enabled)
-{
-  require('./serproxy').start();
-}
-
 var master = require('./master');
 
 master.on('connect', function()
