@@ -3,4 +3,4 @@
  *
  * @type {Boolean}
  */
-exports.enabled = true;//process.platform === 'linux';
+exports.enabled = process.platform === 'linux';
