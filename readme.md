@@ -4,36 +4,40 @@
 
 ### node.js
 
-Server-side JavaScript.
+Node.js is a server side software system designed for writing scalable
+Internet applications in JavaScript.
 
-Download: http://nodejs.org/#download
-
-Installation instructions: https://github.com/joyent/node/wiki/Installation
+  * __Version__: 0.6.x
+  * __Website__: http://nodejs.org/
+  * __Download__: http://nodejs.org/download/
+  * __Installation guide__: https://github.com/joyent/node/wiki/Installation
 
 ### MongoDB
 
-NoSQL database.
+MongoDB is a scalable, high-performance, open source NoSQL database.
 
-Download: http://www.mongodb.org/downloads
-
-Installation instructions: http://www.mongodb.org/display/DOCS/Quickstart
+  * __Version__: 2.x.x
+  * __Website__: http://mongodb.org/
+  * __Download__: http://www.mongodb.org/downloads
+  * __Installation guide__: http://www.mongodb.org/display/DOCS/Quickstart
 
 ## Installation
 
 Clone the repository:
 
-    git clone git://github.com/morkai/walkner-av.git
+```
+git clone git://github.com/morkai/walkner-av.git
+```
 
 or [download](https://github.com/morkai/walkner-av/zipball/master)
 and extract it.
 
-Go to the project's directory:
+Go to the project's directory and install the dependencies:
 
-    $ cd walkner-av/
-
-Install the dependencies:
-
-    $ npm install
+```
+cd walkner-av/
+npm install
+```
 
 ## Configuration
 
@@ -164,18 +168,24 @@ be found in
 
 If not yet running, start the MongoDB:
 
-    $ mongod -f walkner-av/config/mongod.conf
+```
+mongod -f walkner-av/config/mongod.conf
+```
 
 Start the application server in `development` or `production` environment:
 
   * under *nix:
 
-        $ NODE_ENV=development node walkner-av/server/index.js
+    ```
+    NODE_ENV=development node walkner-av/server/index.js
+    ```
 
   * under Windows:
 
-        $ SET NODE_ENV=development
-        $ node walkner-av/server/index.js
+    ```
+    SET NODE_ENV=development
+    node walkner-av/server/index.js
+    ```
 
 To run the application in `production` environment one must have
 [r.js](https://github.com/jrburke/r.js) properly set up and then execute the
@@ -186,3 +196,6 @@ following commands:
 
 Application should be available on a port defined in `config/express.js` file
 (`80` by default). Point the Internet browser to http://127.0.0.1/.
+
+This project is released under the
+[CC BY-NC 3.0](https://raw.github.com/morkai/walkner-av/master/license.md).
