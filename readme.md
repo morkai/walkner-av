@@ -197,5 +197,7 @@ following commands:
 Application should be available on a port defined in `config/express.js` file
 (`80` by default). Point the Internet browser to http://127.0.0.1/.
 
+## License
+
 This project is released under the
 [CC BY-NC 3.0](https://raw.github.com/morkai/walkner-av/master/license.md).
