@@ -1,8 +1,8 @@
 {
   "name": "walkner-av",
-  "version": "0.1.0",
-  "description": "ArenaVision Tester",
-  "license": "CC BY-NC 3.0",
+  "version": "0.0.0",
+  "description": "ArenaVision Tester application for Node.js.",
+  "license": "NPOSL-3.0",
   "homepage": "https://github.com/morkai/walkner-av",
   "author":
   {
