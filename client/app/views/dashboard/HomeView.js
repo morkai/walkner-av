@@ -395,7 +395,7 @@ function(
     var $currentEntry = this.$('.currentEntry.stateContainer')
       .removeClass('programRunning connected disconnected');
 
-    if (dashboardModel.tags.connected)
+    if (dashboardModel.tags.connected === 1)
     {
       $currentEntry.addClass(
         dashboardModel.tags.programRunning ? 'programRunning' : 'connected'
