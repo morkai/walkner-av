@@ -59,7 +59,8 @@ master.setUpTransactions = function(allTags, handleTagChanges)
       fn: t.fn,
       address: t.address,
       quantity: t.tags.length,
-      handler: tagHandlers[t.fn](t.tags, allTags, handleTagChanges)
+      handler: tagHandlers[t.fn](t.tags, allTags, handleTagChanges),
+      interval: t.interval
     });
   });
 };
