@@ -69,6 +69,11 @@ function startSimulation(program)
 
 function handleProgramStart()
 {
+  if (!exports.currentProgram)
+  {
+    return;
+  }
+  
   var startedAt = new Date();
 
   var program = exports.currentProgram;
